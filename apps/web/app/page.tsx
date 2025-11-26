@@ -1,7 +1,8 @@
-import { client } from "db/client";
+import getUsers from "./getUsers";
+
 
 export default async function Home() {
-  const users = await client.user.findMany();
+  const users = await getUsers();
   return(
   <div>{JSON.stringify(users)}</div>
   );

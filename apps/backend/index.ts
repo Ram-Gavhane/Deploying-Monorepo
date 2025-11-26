@@ -1,12 +1,12 @@
 import express from "express";
-import { client } from "db/client";
+import { db } from "db/client";
 
 const app = express();
 
 app.use(express.json());
 
 app.get("/users", (req, res) => {
-  client.user.findMany()
+  db.user.findMany()
     .then(users => {
       res.json(users);
     })
@@ -23,7 +23,7 @@ app.post("/user", (req, res) => {
     return
   }
 
-  client.user.create({
+  db.user.create({
     data: {
       email,
       password

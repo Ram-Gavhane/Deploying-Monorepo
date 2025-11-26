@@ -1,4 +1,4 @@
-import { client } from "db/client";
+import { db } from "db/client";
 
 Bun.serve({
     port: 8081,
@@ -10,8 +10,9 @@ Bun.serve({
       return new Response("Upgrade failed", { status: 500 });
     },
     websocket: {
-        message(ws, message) {
-            client.user.create({
+        async message(ws, message) {
+            console.log(message);
+            await db.user.create({
                 data: {
                     email: Math.random().toString(),
                     password: Math.random().toString()
