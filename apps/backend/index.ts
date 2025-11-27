@@ -7,7 +7,7 @@ app.use(express.json());
 
 app.get("/",(req, res)=>{
   res.json({
-    message:"Backend is Up ✅"
+    message:"Backend is Up ✅ \n Deployed using docker conatainer via CI/CD on AWS"
   })
 })
 
