@@ -10,11 +10,11 @@ COPY ./package-lock.json ./package-lock.json
 COPY ./packages ./packages
 COPY ./turbo.json ./turbo.json
 
-COPY ./apps/backend ./apps/backend
+COPY ./apps/web ./apps/web
 
 RUN bun install
 RUN DATABASE_URL=${DATABASE_URL} bun run db:generate 
 
-EXPOSE 3002
+EXPOSE 3000
 
-CMD [ "bun", "run", "start:backend" ]
+CMD [ "bun", "run", "start:web" ]
