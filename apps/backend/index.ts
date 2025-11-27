@@ -5,6 +5,12 @@ const app = express();
 
 app.use(express.json());
 
+app.get("/",(req, res)=>{
+  res.json({
+    message:"Backend is Up ✅"
+  })
+})
+
 app.get("/users", (req, res) => {
   db.user.findMany()
     .then(users => {
